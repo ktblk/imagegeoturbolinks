@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :posts
   get 'sessions/new'
 
   get 'sessions/create'
 
   get 'sessions/destroy'
 
-  root 'picture#index'
+  root 'posts#index'
 
   get '/register' => 'users#new'
   resources :users
