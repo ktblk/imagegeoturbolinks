@@ -4,8 +4,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-  end
+    if session[:user_id].nil?
+        redirect_to register_path
+    else
+        @posts = Post.all
+    end
+end
 
   # GET /posts/1
   # GET /posts/1.json
