@@ -1,3 +1,35 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/t
+
+
+h1 {
+  font-family: "Century Gothic";
+  color: 	#3bc5ec;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 10em;
+  position: flex;
+}
+
+h2 {
+  font-family: "Century Gothic";
+  color: 	#484848;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 4.5em;
+  position: flex;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+
+tr {
+  font-family: "Century Gothic";
+  color: #3bc5ec;
+}
+
+td {
+  font-family: "Century Gothic";
+  color: #3bc5ec;
+}
