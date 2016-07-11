@@ -1,24 +1,30 @@
+<div class="all">
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Wynstagram.</h1>
+
+<h2>Posts</h2>
 
 <table>
   <thead>
     <tr>
       <th>Caption</th>
-      <th>User</th>
+      <!-- <th>User</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @posts.each do |post| %>
-      <tr>
+    <% @posts.reverse.each do |post| %>
+      <tr class="tr">
         <td><%= post.caption %></td>
-        <td><%= post.user %></td>
+        <td><img src="<%= post.picture %>" width=300em height=250em style="border-style: solid; border-color: #3bc5ec; border-width: 2px; border-radius: 2%;"></td>
+        <!-- <td><% post.user %></td> -->
         <td><%= link_to 'Show', post %></td>
+        <% if current_user.id == post.user_id %>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +33,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+</div>
