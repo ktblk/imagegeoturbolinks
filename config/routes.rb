@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :posts
+
+  resources :posts do
+    resources :comments
+  end
   get 'sessions/new'
-
   get 'sessions/create'
-
   get 'sessions/destroy'
-
   root 'posts#index'
 
   get '/register' => 'users#new'
