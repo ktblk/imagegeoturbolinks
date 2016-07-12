@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @post = Post.all.limit(8)
   end
 
   def create

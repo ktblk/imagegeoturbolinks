@@ -1,37 +1,16 @@
-<div class="all">
-<p id="notice"><%= notice %></p>
 
-<h1>Wynstagram.</h1>
-
-<h2>Posts</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Caption</th>
-      <!-- <th>User</th> -->
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.reverse.each do |post| %>
-      <tr class="tr">
-        <td><%= post.caption %></td>
-        <td><img src="<%= post.picture %>" width=300em height=250em style="border-style: solid; border-color: #3bc5ec; border-width: 2px; border-radius: 2%;"></td>
-        <!-- <td><% post.user %></td> -->
-        <td><%= link_to 'Show', post %></td>
-        <% if current_user.id == post.user_id %>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<div class="newpost" style= "color: #383838; font-family: Menlo;">
-<%= link_to 'New Post', new_post_path %>
-</div>
-</div>
+<div class="col-xs-12" style="margin-bottom: 30px;">
+<%= link_to 'New Post', new_post_path, class: "btn btn-info btn-white" %></div>
+<% @posts.each do |post| %>
+  <div class="col-xs-12 col-sm-6 col-md-4" style= "margin-bottom: 20px;">
+    <div><img src="<%= post.picture %>" width="100%" height="100%" class="post-image"></div>
+    <div>Username: <strong><%= post.user.username %></strong></div>
+    <div>Caption: <strong><%= post.caption %></strong></div>
+    <div><%= link_to 'Show', post, class: "btn btn-info btn-white"%>
+    <% if current_user.id == post.user_id %>
+      <%= link_to 'Edit', edit_post_path(post), class: "btn btn-yellow btn-white" %>
+      <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-orange btn-white" %>
+    </div>
+    <%end%>
+  </div>
+<% end %>

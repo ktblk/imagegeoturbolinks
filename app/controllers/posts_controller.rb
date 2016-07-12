@@ -5,9 +5,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if session[:user_id].nil?
-        redirect_to register_path
+        redirect_to login_path
     else
-        @posts = Post.all
+        @posts = current_user.posts
     end
 end
 
