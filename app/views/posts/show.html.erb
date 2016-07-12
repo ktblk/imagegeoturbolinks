@@ -1,29 +1,36 @@
 
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
+  
 
-<p>
-  <%= image_tag @post.picture.url(:medium) %>
-  <strong>Caption:</strong>
-  <%= @post.caption %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
-<div class="comment">
-  <h3>Comments</h3>
+  <p>
+    <%= image_tag @post.picture.url(:medium) %>
+    <strong>Caption:</strong>
+    <%= @post.caption %>
+  </p>
 
 
-  <% @post.comments.each do |comment| %>
-  <p><strong>By: <%= User.find(comment.user_id).username %></strong></p>
-    <%= comment.body %>
-    <%end%>
-  <br>
-</div>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
 
-<%= form_for [@post, @post.comments.new] do |f|%>
-  <%= f.text_area :body , placeholder: "Add a Comment..." %>
-  <br>
-  <%= f.submit %>
-<%end%>
+  <div class="comment">
+    <h3>Comments</h3>
+
+
+    <% @post.comments.each do |comment| %>
+    <p><strong>By: <%= User.find(comment.user_id).username %></strong></p>
+    <%= link_to 'Delete', [comment.post, comment],
+                 :method => :delete,
+                 data: { confirm: 'Are you sure?' }
+                  %>
+      <%= comment.body %>
+      <%end%>
+    <br>
+  </div>
+
+  <%= form_for [@post, @post.comments.new] do |f|%>
+    <%= f.text_area :body , placeholder: "Add a Comment..." %>
+    <br>
+    <%= f.submit %>
+  <%end%>
+
+  <!-- /posts/:post_id/comments/:id(.:format)      comments#destroy -->
