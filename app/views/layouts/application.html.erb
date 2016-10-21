@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wynstagram</title>
+    <title>JopKo Test</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="login">
-    <p class="alignright">Wynstagram.</p>
+    <p class="alignright">JopKo Test</p>
     <p class="alignleft"><% if current_user %>
       Signed in as <%= current_user.username %> | <%= link_to "Logout", logout_path %>
     <% else %>
